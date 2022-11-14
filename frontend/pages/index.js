@@ -7,12 +7,11 @@ import styles from "../styles/styles.module.css";
 export default function Home() {
     return (
         <Grid.Container>
-            <Grid sm={2} xs={12} className={styles.profile}>
+            <Grid sm={3} xs={12} className={styles.profile}>
                 <Text h1>
-                    Zoc's{" "}
+                    Zoc's
                     <Text
                         h1
-                        size={60}
                         css={{
                             textGradient:
                                 "9deg, $purple600 -20%, $pink600 100%",
@@ -23,9 +22,9 @@ export default function Home() {
                     </Text>
                     Collection
                 </Text>
-                <ThemeSwitches />
+                <ThemeSwitches styles={styles} />
             </Grid>
-            <Grid sm={10} xs={12}>
+            <Grid sm={9} xs={12} className={styles.images}>
                 Nice
             </Grid>
         </Grid.Container>

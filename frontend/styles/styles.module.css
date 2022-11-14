@@ -1,5 +1,34 @@
 .profile {
+    height: 100vh;
+    padding: 1rem;
+
+    position: sticky;
+    top: 0;
+
+    word-break: break-all;
+
     flex-direction: column;
     justify-content: center;
-    min-height: 100vh;
+}
+
+.profile .theme {
+    max-width: 20rem;
+}
+
+@media (max-width: 959px) {
+    .profile {
+        height: 60vh;
+
+        position: relative;
+
+        align-items: center;
+    }
+
+    .profile .theme {
+        width: 25rem;
+    }
+}
+
+.images {
+    /* min-height: 200vh; */
 }
