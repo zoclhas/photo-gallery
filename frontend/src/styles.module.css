@@ -41,6 +41,31 @@
     }
 }
 
-.images {
-    /* min-height: 200vh; */
+/* html.dark-theme body[ambient-mode="true"]*/
+html[class="dark-theme"] body[ambient-mode="true"] .ambient-image {
+    position: absolute;
+
+    filter: blur(64px);
+    opacity: 0.7;
+
+    width: 300px;
+    height: max-content;
+
+    transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+html[class="light-theme"] .ambient-image {
+    display: none;
+}
+
+html[class="dark-theme"] body[ambient-mode="false"] .ambient-image {
+    position: absolute;
+
+    filter: blur(64px);
+    opacity: 0;
+
+    width: 300px;
+    height: max-content;
+
+    transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
 }

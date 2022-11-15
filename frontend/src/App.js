@@ -26,7 +26,7 @@ function App() {
                 <ThemeSwitches styles={styles} />
             </Grid>
             <Grid sm={9} xs={12} className={styles.images}>
-                <Gallery />
+                <Gallery styles={styles} />
             </Grid>
         </Grid.Container>
     );
