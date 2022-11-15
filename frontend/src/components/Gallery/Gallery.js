@@ -6,16 +6,18 @@ import { Grid, Card } from "@nextui-org/react";
 function Gallery({ styles }) {
     const [images, setImages] = useState([]);
 
+    const URL = process.env.REACT_APP_API_URL;
+
     useEffect(() => {
         async function fetchImages() {
-            const { data } = await axios.get(
-                "http://127.0.0.1:8000/api/images/"
-            );
+            const { data } = await axios.get(`${URL}/api/images`);
             setImages(data);
         }
 
         fetchImages();
     }, []);
+
+    console.log(`${URL}/api/images`);
 
     return (
         <Grid.Container gap={1} css={{ padding: "1rem" }}>
@@ -24,7 +26,7 @@ function Gallery({ styles }) {
                     <img
                         src={
                             image.image_upload
-                                ? `http://127.0.0.1:8000${image.image_upload}`
+                                ? `${URL}${image.image_upload}`
                                 : image.image_link
                         }
                         className={styles["ambient-image"]}
@@ -39,7 +41,7 @@ function Gallery({ styles }) {
                         <Card.Image
                             src={
                                 image.image_upload
-                                    ? `http://127.0.0.1:8000${image.image_upload}`
+                                    ? `${URL}${image.image_upload}`
                                     : image.image_link
                             }
                             objectFit="cover"
