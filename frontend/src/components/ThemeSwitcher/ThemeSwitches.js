@@ -9,8 +9,47 @@ export function ThemeSwitches({ styles }) {
     const { setTheme } = useNextTheme();
     const { isDark, type } = useTheme();
 
+    //Ambient Mode
+    const body = document.querySelector("body");
+    const ambientSwitch = document.querySelector("#ambient-switch input");
+    const ambient = localStorage.getItem("ambient");
+    const on__off = document.getElementById("on__off");
+
+    if (!ambient || ambient === "on") {
+        localStorage.setItem("ambient", "on");
+        ambientModeOn();
+    } else {
+        ambientModeOff();
+    }
+
+    function ambientMode() {
+        if (ambientSwitch.checked) {
+            ambientModeOn();
+        } else {
+            ambientModeOff();
+        }
+    }
+
+    function ambientModeOn() {
+        localStorage.setItem("ambient", "on");
+        body.setAttribute("ambient-mode", "true");
+
+        setTimeout(() => {
+            on__off.innerHTML = "On";
+        }, 1);
+    }
+
+    function ambientModeOff() {
+        localStorage.setItem("ambient", "off");
+        body.setAttribute("ambient-mode", "false");
+
+        setTimeout(() => {
+            on__off.innerHTML = "Off";
+        }, 1);
+    }
+
     return (
-        <div>
+        <div className={styles["theme-settings"]}>
             <Card className={styles.theme}>
                 <Card.Body
                     css={{
@@ -47,14 +86,19 @@ export function ThemeSwitches({ styles }) {
                     }}
                 >
                     <Switch
-                        shadow
+                        checked={ambient === "on"}
                         color="secondary"
                         size="xl"
                         disabled={type === "light"}
+                        id="ambient-switch"
+                        onChange={() => {
+                            ambientMode();
+                        }}
                     />
                     <span>
-                        <strong>Ambient Mode:</strong>{" "}
-                        {type === "dark" ? "On" : "Off"}
+                        <strong>Ambient Mode:</strong>
+                        &nbsp;
+                        <span id="on__off">On</span>
                     </span>
                     {type === "light" && (
                         <Tooltip

@@ -12,7 +12,13 @@
 }
 
 .profile .theme {
-    max-width: 20rem;
+    min-width: 20rem;
+}
+
+.profile .theme-settings {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1rem;
 }
 
 @media (max-width: 959px) {
@@ -25,7 +31,13 @@
     }
 
     .profile .theme {
-        width: 25rem;
+        max-width: 25rem;
+    }
+
+    .profile .theme-settings {
+        position: relative;
+
+        margin-top: 0;
     }
 }
 

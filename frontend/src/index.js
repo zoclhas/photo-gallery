@@ -20,7 +20,7 @@ const darkTheme = createTheme({
 
 root.render(
     <NextThemesProvider
-        defaultTheme="system"
+        defaultTheme="dark"
         attribute="class"
         value={{
             light: lightTheme.className,

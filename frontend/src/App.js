@@ -11,7 +11,6 @@ function App() {
                 <Text h1>
                     Zoc's
                     <Text
-                        h1
                         css={{
                             textGradient:
                                 "9deg, $purple600 -20%, $pink600 100%",
