@@ -1,10 +1,10 @@
 import { Grid, Text } from "@nextui-org/react";
 
-import { ThemeSwitches } from "../components/ThemeSwitcher/ThemeSwitches";
+import { ThemeSwitches } from "./components/ThemeSwitcher/ThemeSwitches";
 
-import styles from "../styles/styles.module.css";
+import styles from "./styles.module.css";
 
-export default function Home() {
+function App() {
     return (
         <Grid.Container>
             <Grid sm={3} xs={12} className={styles.profile}>
@@ -28,9 +28,7 @@ export default function Home() {
                 Nice
             </Grid>
         </Grid.Container>
-        // <div>
-        //     <h1>Hello World!</h1>
-        //     <ThemeSwitches />
-        // </div>
     );
 }
+
+export default App;
