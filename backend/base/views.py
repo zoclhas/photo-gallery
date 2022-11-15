@@ -3,6 +3,9 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from .models import Images
+from .serializers import ImagesSerializer
+
 # Create your views here.
 
 
@@ -14,5 +17,6 @@ def getRoutes(request):
 
 @api_view(['GET'])
 def getImages(request):
-    images = ["hi", "hi 2", "hi 3"]
-    return Response(images)
+    images = Images.objects.all().order_by("-id")
+    serializer = ImagesSerializer(images, many=True)
+    return Response(serializer.data)
