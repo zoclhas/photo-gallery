@@ -1,6 +1,7 @@
 import { Grid, Text } from "@nextui-org/react";
 
 import { ThemeSwitches } from "./components/ThemeSwitcher/ThemeSwitches";
+import Gallery from "./components/Gallery/Gallery";
 
 import styles from "./styles.module.css";
 
@@ -25,7 +26,7 @@ function App() {
                 <ThemeSwitches styles={styles} />
             </Grid>
             <Grid sm={9} xs={12} className={styles.images}>
-                Nice
+                <Gallery />
             </Grid>
         </Grid.Container>
     );
